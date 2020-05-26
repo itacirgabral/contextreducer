@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CTX } from '../rdx'
 
+import CarrinhoItem from '../components/carrinhoItem'
 
 const Carrinho = () => {
   const {state, dispatch, action} = useContext(CTX)
@@ -10,14 +11,12 @@ const Carrinho = () => {
     <h1>Carrinho</h1>
     <ul>
       {
-        state.cart.map(({id, name, price, img}) => <li key={id}>
-          <p>
-            <span>{name} </span>
-            <span> {price} </span>
-            <span> {img} </span>
-            <button onClick={handleTirarClick(id)}>devolver</button>
-          </p>
-        </li>)
+        state.cart.map(({id, name, price, img}) => <CarrinhoItem
+          key={id}
+          name={name}
+          price={price}
+          handleTirarClick={handleTirarClick(id)}
+        />)
       }
     </ul>
     <Link  to='/'>
