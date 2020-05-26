@@ -1,29 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const produtos = Array(20).fill({
-  name: 'nome',
-  price: 'preço',
-  img: 'imagem',
-}).map(
-  ({name, price, img}, i) => ({
-    name: `${name}-${i}`,
-    price: `${price}-${i}`,
-    img: `${img}-${i}`
-  })
-)
 
-const Gondola = () => {
+const Gondola = ({state, dispatch, action}) => {
+  console.dir(state)
   return <>
     <h1>Gondola</h1>
     <ul>
       {
-        produtos.map(({name, price, img}) => <li>
+        state.itens.map(({id, name, price, img}) => <li key={id}>
           <p>
             <span>{name} </span>
             <span> {price} </span>
             <span> {img} </span>
-            <button>comprar</button>
+            <button>adicionar</button>
           </p>
         </li>)
       }
