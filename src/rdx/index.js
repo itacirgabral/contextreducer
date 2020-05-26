@@ -7,7 +7,8 @@ export const CTX = createContext()
 
 const RDX = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialArg)
-  return <CTX.Provider value={{ state, dispatch, action }}>
+  const contextValue = { state, dispatch, action }
+  return <CTX.Provider value={contextValue}>
     {children}
   </CTX.Provider>
 }
