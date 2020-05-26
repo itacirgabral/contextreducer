@@ -7,7 +7,7 @@ const Carrinho = () => {
   const {state, dispatch, action} = useContext(CTX)
   const handleTirarClick = id => () => dispatch(action.tiraDoCarrinho({ id }))
   return <>
-    <p>Carrinho</p>
+    <h1>Carrinho</h1>
     <ul>
       {
         state.cart.map(({id, name, price, img}) => <li key={id}>
