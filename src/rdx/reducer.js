@@ -1,9 +1,13 @@
 import handle from './handle'
 
 const reducer = (state, action) => {
+  console.dir(state)
+  console.dir(action)
   switch (action.type) {
-    case 'drawerInc':
-      return handle.drawerInc(state, action)
+    case 'colocaNoCarrinho':
+      return handle.colocaNoCarrinho(state, action)
+    case 'tiraDoCarrinho':
+      return handle.tiraDoCarrinho(state, action)
     default:
       return state
   }

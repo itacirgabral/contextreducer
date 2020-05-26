@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 
 const Gondola = ({state, dispatch, action}) => {
-  console.dir(state)
+  const handleColocarClick = id => () => dispatch(action.colocaNoCarrinho({ id }))
+  const isDisabled = id => state.cart.find(el => el.id === id) ? true : false
   return <>
     <h1>Gondola</h1>
     <ul>
@@ -13,7 +14,12 @@ const Gondola = ({state, dispatch, action}) => {
             <span>{name} </span>
             <span> {price} </span>
             <span> {img} </span>
-            <button>adicionar</button>
+            <button
+              onClick={handleColocarClick(id)}
+              disabled={isDisabled(id)}
+            >
+              Colocar no Carrinho
+            </button>
           </p>
         </li>)
       }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 const Carrinho = ({state, dispatch, action}) => {
+  const handleTirarClick = id => () => dispatch(action.tiraDoCarrinho({ id }))
   return <>
     <p>Carrinho</p>
     <ul>
@@ -12,7 +13,7 @@ const Carrinho = ({state, dispatch, action}) => {
             <span>{name} </span>
             <span> {price} </span>
             <span> {img} </span>
-            <button>devolver</button>
+            <button onClick={handleTirarClick(id)}>devolver</button>
           </p>
         </li>)
       }
