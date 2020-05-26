@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { CTX } from '../rdx'
 
 
-const Carrinho = ({state, dispatch, action}) => {
+const Carrinho = () => {
+  const {state, dispatch, action} = useContext(CTX)
   const handleTirarClick = id => () => dispatch(action.tiraDoCarrinho({ id }))
   return <>
     <p>Carrinho</p>

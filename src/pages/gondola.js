@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { CTX } from '../rdx'
 
 
-const Gondola = ({state, dispatch, action}) => {
+const Gondola = () => {
+  const {state, dispatch, action} = useContext(CTX)
   const handleColocarClick = id => () => dispatch(action.colocaNoCarrinho({ id }))
   const isDisabled = id => state.cart.find(el => el.id === id) ? true : false
   return <>

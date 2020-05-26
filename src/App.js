@@ -1,24 +1,22 @@
-import React, { useReducer } from 'react'
+import React from 'react'
 import {
   BrowserRouter,
   Route,
   Switch
 } from 'react-router-dom';
 
-import { reducer, initialArg, action } from './rdx'
+import RDX from './rdx'
 
 import Gondola from './pages/gondola'
 import Carrinho from './pages/carrinho'
 
-const  App = () => {
-  const [state, dispatch] = useReducer(reducer, initialArg)
-
-  return <BrowserRouter >
+const  App = () => <RDX>
+  <BrowserRouter >
     <Switch>
-      <Route exact path='/' render={() => <Gondola state={state} dispatch={dispatch} action={action}/>}/>
-      <Route exact path='/carrinho' render={() => <Carrinho state={state} dispatch={dispatch} action={action}/>}/>
+      <Route exact path='/' component={Gondola}/>
+      <Route exact path='/carrinho' component={Carrinho}/>
     </Switch>
   </BrowserRouter>
-}
+</RDX>
 
 export default App;
