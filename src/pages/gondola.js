@@ -1,13 +1,12 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { CTX } from '../rdx'
 
+import { CTX } from '../rdx'
 import GondolaItem from '../components/gondolaItem'
 
 const Gondola = () => {
   const {state, dispatch, action} = useContext(CTX)
-
-  const handleColocarClick = id => () => dispatch(action.colocaNoCarrinho({ id }))
+  const handleColocar = id => () => dispatch(action.colocaNoCarrinho({ id }))
   const isDisabled = id => state.cart.find(el => el.id === id) ? true : false
 
   return <>
@@ -19,7 +18,7 @@ const Gondola = () => {
           name={name}
           price={price}
           img={img}
-          handleColocarClick={handleColocarClick(id)}
+          handleColocar={handleColocar(id)}
           isDisabled={isDisabled(id)}
         />)
       }
